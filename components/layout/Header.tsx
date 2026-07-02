@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { MobileNav } from "@/components/layout/MobileNav";
+import { ThemeToggle } from "@/components/layout/ThemeToggle";
 
 type NavItem = { label: string; href: string };
 
@@ -20,14 +21,17 @@ export function Header({ nav, siteTitle }: { nav: NavItem[]; siteTitle: string }
           </a>
         ))}
       </nav>
-      <button
-        aria-label="Abrir menu"
-        aria-expanded={open}
-        className="md:hidden"
-        onClick={() => setOpen((prev) => !prev)}
-      >
-        <span aria-hidden="true">☰</span>
-      </button>
+      <div className="flex items-center gap-2">
+        <ThemeToggle />
+        <button
+          aria-label="Abrir menu"
+          aria-expanded={open}
+          className="md:hidden"
+          onClick={() => setOpen((prev) => !prev)}
+        >
+          <span aria-hidden="true">☰</span>
+        </button>
+      </div>
       <MobileNav nav={nav} open={open} />
     </header>
   );
