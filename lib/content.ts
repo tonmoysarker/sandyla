@@ -8,12 +8,20 @@ import {
   ProjectFrontmatterSchema,
   CategorySchema,
   SiteSettingsSchema,
+  HomeContentSchema,
   type PoemFrontmatter,
   type ProjectFrontmatter,
   type Category,
   type SiteSettings,
+  type HomeContent,
 } from "@/lib/types";
-import { POEMS_DIR, PROJECTS_DIR, SETTINGS_FILE, CATEGORIES_FILE } from "@/lib/content-paths";
+import {
+  POEMS_DIR,
+  PROJECTS_DIR,
+  SETTINGS_FILE,
+  CATEGORIES_FILE,
+  HOME_CONTENT_FILE,
+} from "@/lib/content-paths";
 
 export type Poem = PoemFrontmatter & { content: string; readingTime: number };
 export type Project = ProjectFrontmatter & { content: string };
@@ -74,4 +82,9 @@ export function getCategories(): Category[] {
 export function getSiteSettings(): SiteSettings {
   const raw = parseYaml(fs.readFileSync(SETTINGS_FILE, "utf-8"));
   return SiteSettingsSchema.parse(raw);
+}
+
+export function getHomeContent(): HomeContent {
+  const raw = parseYaml(fs.readFileSync(HOME_CONTENT_FILE, "utf-8"));
+  return HomeContentSchema.parse(raw);
 }

@@ -45,6 +45,15 @@ export const CategorySchema = z.object({
 });
 export type Category = z.infer<typeof CategorySchema>;
 
+export const HomeContentSchema = z.object({
+  heroTitleLine1: z.string(),
+  heroTitleLine2: z.string(),
+  heroSubtitle: z.string(),
+  heroPrimaryCta: z.object({ label: z.string(), href: z.string() }),
+  heroSecondaryCta: z.object({ label: z.string(), href: z.string() }),
+});
+export type HomeContent = z.infer<typeof HomeContentSchema>;
+
 export const SiteSettingsSchema = z.object({
   siteTitle: z.string(),
   tagline: z.string(),
