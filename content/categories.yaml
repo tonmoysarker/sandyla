@@ -1,0 +1,4 @@
+- { slug: "sombras", label: "Sombras", description: "Poemas sobre introspecção e a noite." }
+- { slug: "luz", label: "Luz", description: "Poemas sobre esperança e saudade." }
+- { slug: "ilustracao", label: "Ilustração", description: "Projetos visuais e vitrais." }
+- { slug: "manuscrito", label: "Manuscrito", description: "Trabalhos de caligrafia e escrita manual." }

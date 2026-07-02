@@ -1,0 +1,5 @@
+heroTitleLine1: "Palavras que"
+heroTitleLine2: "Florescem"
+heroSubtitle: "Um espaço onde sentimentos ganham forma em versos. Bem-vindo ao meu mundo."
+heroPrimaryCta: { label: "Ler Poemas", href: "/poemas" }
+heroSecondaryCta: { label: "Sobre Mim", href: "/sobre" }

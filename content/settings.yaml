@@ -1,0 +1,15 @@
+siteTitle: "Versos"
+tagline: "Palavras que florescem"
+nav:
+  - { label: "Início", href: "/" }
+  - { label: "Sobre", href: "/sobre" }
+  - { label: "Poemas", href: "/poemas" }
+  - { label: "Portfólio", href: "/portfolio" }
+  - { label: "Contato", href: "/contato" }
+socials:
+  - { platform: "instagram", url: "https://instagram.com/versos" }
+  - { platform: "pinterest", url: "https://pinterest.com/versos" }
+footerQuote: "A poesia é o eco da alma que se recusa a ficar em silêncio."
+giscus:
+  repo: "tonmoysarker/sandyla"
+  category: "Poemas"
