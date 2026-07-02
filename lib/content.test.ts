@@ -1,11 +1,11 @@
 import { describe, it, expect, vi } from "vitest";
-import path from "path";
 
-const FIXTURE_DIR = path.join(process.cwd(), "tests/fixtures/content");
-
-vi.mock("@/lib/content-paths", () => ({
-  POEMS_DIR: path.join(FIXTURE_DIR, "poems"),
-}));
+vi.mock("@/lib/content-paths", async () => {
+  const path = await import("path");
+  return {
+    POEMS_DIR: path.join(process.cwd(), "tests/fixtures/content/poems"),
+  };
+});
 
 import { getAllPoems, getPoemBySlug, getRelatedPoems } from "@/lib/content";
 
