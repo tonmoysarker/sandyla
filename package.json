@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "prebuild": "node scripts/build-search-index.mjs"
   },
   "dependencies": {
     "@giscus/react": "^3.1.0",
