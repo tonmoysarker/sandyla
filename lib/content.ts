@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import yaml from "js-yaml";
+import { load as parseYaml } from "js-yaml";
 import { parseMdxFile } from "@/lib/mdx";
 import { calculateReadingTime } from "@/lib/reading-time";
 import {
@@ -66,12 +66,12 @@ export function getProjectBySlug(slug: string): Project | undefined {
 
 export function getCategories(): Category[] {
   if (!fs.existsSync(CATEGORIES_FILE)) return [];
-  const raw = yaml.load(fs.readFileSync(CATEGORIES_FILE, "utf-8"));
+  const raw = parseYaml(fs.readFileSync(CATEGORIES_FILE, "utf-8"));
   const list = Array.isArray(raw) ? raw : [];
   return list.map((entry) => CategorySchema.parse(entry));
 }
 
 export function getSiteSettings(): SiteSettings {
-  const raw = yaml.load(fs.readFileSync(SETTINGS_FILE, "utf-8"));
+  const raw = parseYaml(fs.readFileSync(SETTINGS_FILE, "utf-8"));
   return SiteSettingsSchema.parse(raw);
 }
