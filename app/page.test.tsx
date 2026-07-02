@@ -21,8 +21,8 @@ describe("HomePage", () => {
 
   it("renders About and Portfolio teaser cards", () => {
     render(<HomePage />);
-    expect(screen.getByText("Sobre Mim")).toBeInTheDocument();
-    expect(screen.getByText("Portfólio")).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Sobre Mim" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Portfólio" })).toBeInTheDocument();
   });
 
   it("renders the footer quote as a QuoteBanner", () => {
