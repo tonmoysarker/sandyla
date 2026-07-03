@@ -18,7 +18,7 @@ export default function SobrePage() {
     <main className="mx-auto grid max-w-3xl gap-10 px-6 py-16 md:grid-cols-[1fr_2fr] md:items-start">
       <ArchFrame>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/images/about-portrait.jpg" alt="Retrato da autora" className="h-full w-full object-cover" />
+        <img src="/images/about-portrait.svg" alt="Retrato da autora" className="h-full w-full object-cover" />
       </ArchFrame>
       <div>
         <h1 className="font-display text-3xl text-gold">{frontmatter.title}</h1>

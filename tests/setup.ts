@@ -26,6 +26,13 @@ class MockIntersectionObserver {
 
 vi.stubGlobal("IntersectionObserver", MockIntersectionObserver);
 
+// jsdom's fetch rejects on relative URLs (e.g. SearchBar's "/search-index.json");
+// default to an empty index — tests that need data stub fetch themselves.
+vi.stubGlobal(
+  "fetch",
+  vi.fn().mockResolvedValue({ json: () => Promise.resolve([]) })
+);
+
 vi.stubGlobal(
   "matchMedia",
   vi.fn().mockImplementation((query: string) => ({
