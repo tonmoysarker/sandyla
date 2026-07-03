@@ -4,7 +4,7 @@ export function VineDivider() {
       data-testid="vine-divider"
       aria-hidden="true"
       viewBox="0 0 200 24"
-      className="mx-auto my-8 h-6 w-48 text-gold"
+      className="mx-auto my-8 h-6 w-48 text-accent"
       fill="none"
       stroke="currentColor"
       strokeWidth={1}

@@ -18,7 +18,7 @@ export default function HomePage() {
 
       <section className="grid gap-10 px-6 py-16 md:grid-cols-2 md:px-16">
         <div>
-          <h2 className="font-display text-2xl text-gold">Últimos Poemas</h2>
+          <h2 className="font-display text-fluid-xl text-accent">Últimos Poemas</h2>
           <ul className="mt-6 space-y-6">
             {latestPoems.map((poem) => (
               <PoemListItem key={poem.slug} poem={poem} />

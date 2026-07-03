@@ -8,12 +8,12 @@ export function TeaserCard({
   cta: { label: string; href: string };
 }) {
   return (
-    <div className="rounded-soft border border-gold-container/30 bg-parchment/5 p-8">
-      <h2 className="font-display text-xl text-ink">{title}</h2>
+    <div className="rounded-soft border border-outline-variant bg-surface-mid p-8">
+      <h2 className="font-display text-fluid-lg text-ink">{title}</h2>
       <p className="mt-3 font-body text-ink/80">{description}</p>
       <a
         href={cta.href}
-        className="mt-5 inline-block font-label text-sm uppercase tracking-wide text-gold transition-colors duration-organic-fast ease-organic hover:text-emerald"
+        className="mt-5 inline-block font-label text-fluid-sm uppercase tracking-wide text-accent transition-colors duration-organic-fast ease-organic hover:text-secondary"
       >
         {cta.label}
       </a>

@@ -14,10 +14,10 @@ export function PoemListItem({ poem }: { poem: Poem }) {
     <li className="flex items-start gap-3">
       <RoseBullet className="mt-1 shrink-0" />
       <a href={`/poemas/${poem.slug}`} className="group">
-        <span className="block font-display text-lg text-ink transition-colors duration-organic-fast ease-organic group-hover:text-gold">
+        <span className="block font-display text-fluid-md text-ink transition-colors duration-organic-fast ease-organic group-hover:text-accent">
           {poem.title}
         </span>
-        <span className="block font-label text-xs uppercase tracking-wide text-ink/60">
+        <span className="block font-label text-fluid-xs uppercase tracking-wide text-ink/60">
           {formatDate(poem.date)}
         </span>
       </a>

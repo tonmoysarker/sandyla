@@ -10,13 +10,13 @@ export function Header({ nav, siteTitle }: { nav: NavItem[]; siteTitle: string }
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 flex items-center justify-between border-b border-gold-container/30 bg-obsidian/90 px-6 py-4 backdrop-blur">
-      <a href="/" className="font-display text-xl tracking-widest text-gold">
+    <header className="sticky top-0 z-50 flex items-center justify-between border-b border-outline-variant bg-surface/90 px-6 py-4 backdrop-blur">
+      <a href="/" className="font-display text-fluid-lg tracking-widest text-accent">
         {siteTitle}
       </a>
-      <nav className="hidden gap-6 font-label text-sm uppercase tracking-wide md:flex">
+      <nav className="hidden gap-6 font-label text-fluid-sm uppercase tracking-wide md:flex">
         {nav.map((item) => (
-          <a key={item.href} href={item.href} className="transition-colors duration-organic-fast ease-organic hover:text-gold">
+          <a key={item.href} href={item.href} className="transition-colors duration-organic-fast ease-organic hover:text-accent">
             {item.label}
           </a>
         ))}

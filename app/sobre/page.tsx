@@ -21,8 +21,8 @@ export default function SobrePage() {
         <img src="/images/about-portrait.svg" alt="Retrato da autora" className="h-full w-full object-cover" />
       </ArchFrame>
       <div>
-        <h1 className="font-display text-3xl text-gold">{frontmatter.title}</h1>
-        <div className="mt-6 font-body text-lg leading-relaxed text-ink/90">
+        <h1 className="font-display text-fluid-2xl text-accent">{frontmatter.title}</h1>
+        <div className="mt-6 font-body text-fluid-md leading-relaxed text-ink/90">
           {content.trim().split("\n\n").map((paragraph, index) => (
             <p key={index}>{paragraph}</p>
           ))}

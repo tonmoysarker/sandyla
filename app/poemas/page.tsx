@@ -18,7 +18,7 @@ export default function PoemasPage() {
 
   return (
     <main className="px-6 py-12 md:px-16">
-      <h1 className="font-display text-3xl text-gold">Poemas</h1>
+      <h1 className="font-display text-fluid-2xl text-accent">Poemas</h1>
       <p className="mt-2 max-w-xl font-body text-ink/80">
         Uma coleção de versos moldados em sombras, luz e todo o sentimento que existe entre elas.
       </p>
@@ -30,10 +30,10 @@ export default function PoemasPage() {
           <a
             key={option.slug}
             href={option.href}
-            className={`rounded-full border px-4 py-1.5 font-label text-xs uppercase tracking-wide ${
+            className={`rounded-full border px-4 py-1.5 font-label text-fluid-xs uppercase tracking-wide ${
               option.slug === "todos"
-                ? "border-gold bg-gold text-obsidian"
-                : "border-ink/30 text-ink/70 hover:border-gold hover:text-gold"
+                ? "border-accent bg-accent text-on-accent"
+                : "border-ink/30 text-ink/70 hover:border-accent hover:text-accent"
             }`}
           >
             {option.label}

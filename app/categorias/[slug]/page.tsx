@@ -12,7 +12,7 @@ export default function CategoriaPage({ params }: { params: { slug: string } }) 
 
   return (
     <main className="px-6 py-12 md:px-16">
-      <h1 className="font-display text-3xl text-gold">{category?.label ?? params.slug}</h1>
+      <h1 className="font-display text-fluid-2xl text-accent">{category?.label ?? params.slug}</h1>
       <p className="mt-2 max-w-xl font-body text-ink/80">{category?.description}</p>
       <div className="mt-8 grid gap-6 md:grid-cols-3">
         {poems.map((poem, index) => (
