@@ -12,9 +12,10 @@ const settings: SiteSettings = {
 };
 
 describe("Footer", () => {
-  it("renders the footer quote", () => {
+  it("renders the site tagline instead of duplicating the home quote", () => {
     render(<Footer settings={settings} />);
-    expect(screen.getByText(new RegExp(settings.footerQuote))).toBeInTheDocument();
+    expect(screen.getByText(settings.tagline)).toBeInTheDocument();
+    expect(screen.queryByText(new RegExp(settings.footerQuote))).not.toBeInTheDocument();
   });
 
   it("renders nav links", () => {

@@ -17,14 +17,9 @@ export function Footer({ settings }: { settings: SiteSettings }) {
   return (
     <footer className="mt-flow-2xl border-t border-outline-variant/60 bg-surface-low">
       <div className="mx-auto max-w-content px-flow-s pb-flow-l pt-flow-xl md:px-flow-l">
-        <div className="text-center">
-          <VineDivider />
-          <p className="mx-auto max-w-xl font-display text-fluid-md italic text-ink">
-            &ldquo;{settings.footerQuote}&rdquo;
-          </p>
-        </div>
+        <VineDivider />
 
-        <div className="mt-flow-xl grid gap-flow-l text-center sm:grid-cols-2 sm:text-left lg:grid-cols-3">
+        <div className="mt-flow-l grid gap-flow-l text-center sm:grid-cols-2 sm:text-left lg:grid-cols-3">
           <div>
             <h2 className="font-display text-fluid-sm uppercase tracking-[0.2em] text-accent">
               {settings.siteTitle}
