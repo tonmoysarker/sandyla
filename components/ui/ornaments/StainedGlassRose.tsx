@@ -1,7 +1,7 @@
 /**
  * Stained-glass rose window. Colors come from the theme tokens so the
- * glass shifts between Obsidian Night (gold/emerald) and Aged Parchment
- * (crimson/bronze) palettes.
+ * glass shifts between Nocturne (stained-glass teal/brass) and Aged
+ * Parchment (deep teal/bronze) palettes.
  */
 export function StainedGlassRose() {
   const lead = "rgb(var(--surface))";

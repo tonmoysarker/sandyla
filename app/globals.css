@@ -17,14 +17,14 @@
   --ink-muted: 92 82 64;
   --outline: 138 122 88;
   --outline-variant: 203 188 152;
-  --accent: 140 47 57; /* muted velvet crimson */
-  --accent-strong: 111 33 41;
+  --accent: 17 75 95; /* deep teal — Stitch primary #114B5F */
+  --accent-strong: 11 54 68;
   --on-accent: 247 239 223;
   --secondary: 122 95 46; /* bronze filigree */
   --secondary-container: 229 213 174;
   --on-secondary-container: 74 57 25;
   --tertiary: 78 62 99;
-  --glow: 140 47 57;
+  --glow: 2 128 144; /* luminous teal #028090 */
 
   /* Utopia fluid type — 320→1240px, 1.2→1.25 ratio, base 18→20px (utopia.fyi) */
   --step--2: clamp(0.7813rem, 0.7747rem + 0.0326vw, 0.8rem);
@@ -55,7 +55,7 @@
 }
 
 .dark {
-  /* Obsidian Night (dark) — exact hex from Stitch design tokens */
+  /* Obsidian Night (dark) — accents from Stitch "Nocturne & Filigree" tokens */
   --surface: 19 19 19;
   --surface-low: 28 27 27;
   --surface-mid: 32 31 31;
@@ -64,14 +64,14 @@
   --ink-muted: 208 197 175;
   --outline: 153 144 124;
   --outline-variant: 77 70 53;
-  --accent: 242 202 80; /* gold leaf */
-  --accent-strong: 212 175 55;
-  --on-accent: 60 47 0;
-  --secondary: 149 211 186; /* stained-glass emerald */
-  --secondary-container: 11 81 61;
-  --on-secondary-container: 131 194 169;
-  --tertiary: 219 198 244;
-  --glow: 149 211 186;
+  --accent: 155 206 230; /* stained-glass teal — Stitch primary #9BCEE6 */
+  --accent-strong: 136 186 209;
+  --on-accent: 0 53 70;
+  --secondary: 194 168 120; /* brass filigree #C2A878 */
+  --secondary-container: 87 68 29;
+  --on-secondary-container: 204 178 129;
+  --tertiary: 119 212 229;
+  --glow: 155 206 230;
 }
 
 @layer base {
@@ -213,7 +213,7 @@
     transform: translateX(-50%) scaleX(1);
   }
 
-  /* Soft tinted glow (emerald in dark, crimson in light) */
+  /* Soft tinted glow (stained-glass teal in both themes) */
   .glow-soft {
     box-shadow: 0 0 24px rgb(var(--glow) / 0.12);
   }

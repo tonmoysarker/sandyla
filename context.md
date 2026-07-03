@@ -2,7 +2,7 @@
 
 ## What this is
 
-Static Next.js poetry blog + creative portfolio for a non-developer owner who edits content directly on GitHub. Visual source of truth (per owner, 2026-07-03 refinement): the Google Stitch **"Stained Verse Design System"** project (`projects/14183640873297549245`) — its "Nocturne & Filigree" designMd carries the canonical tokens (dark "Obsidian Night": gold `#f2ca50`/`#d4af37` primary, emerald `#95d3ba`/`#0b513d` secondary; light "Aged Parchment": charcoal ink, velvet-crimson accent, bronze filigree). The Stitch *screens* drifted to a teal palette — trust the designMd tokens, not screen colors; screens are still the reference for ornament/layout vocabulary.
+Static Next.js poetry blog + creative portfolio for a non-developer owner who edits content directly on GitHub. Visual source of truth (per owner, 2026-07-03 refinement): the Google Stitch **"Stained Verse Design System"** project (`projects/14183640873297549245`) — its "Nocturne & Filigree" designMd carries the canonical accent tokens (dark "Obsidian Night": stained-glass teal `#9bcee6`/`#88bad1` primary, brass `#c2a878` secondary; light "Aged Parchment": charcoal ink, deep-teal `#114b5f` accent with luminous `#028090` glow, bronze filigree). Owner confirmed 2026-07-03: the **teal** palette is correct — an earlier gold/emerald reading of the tokens was wrong and was replaced.
 
 ## Status: DESIGN REFINEMENT SHIPPED (2026-07-03, second deploy)
 
