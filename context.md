@@ -2,7 +2,7 @@
 
 ## What this is
 
-Static Next.js poetry blog + creative portfolio for a non-developer owner who edits content directly on GitHub. Visual target is the owner's reference mockup image ("VERSOS" — Portuguese, stained-glass/Art Nouveau, gold/obsidian/emerald), **not** the Google Stitch-generated screens, which drifted.
+Static Next.js poetry blog + creative portfolio for a non-developer owner who edits content directly on GitHub. Visual source of truth (per owner, 2026-07-03 refinement): the Google Stitch **"Stained Verse Design System"** project (`projects/14183640873297549245`) — its "Nocturne & Filigree" designMd carries the canonical tokens (dark "Obsidian Night": gold `#f2ca50`/`#d4af37` primary, emerald `#95d3ba`/`#0b513d` secondary; light "Aged Parchment": charcoal ink, velvet-crimson accent, bronze filigree). The Stitch *screens* drifted to a teal palette — trust the designMd tokens, not screen colors; screens are still the reference for ornament/layout vocabulary.
 
 ## Status: BUILT AND DEPLOYED (2026-07-03)
 
@@ -22,8 +22,9 @@ Static Next.js poetry blog + creative portfolio for a non-developer owner who ed
 ## Decisions locked
 
 - Next.js 14 App Router + TS + Tailwind + MDX, pure SSG, zero DB/API routes
-- Portuguese only; Giscus comments; no newsletter; no CMS (GitHub web editor)
-- Motion CSS-only, respects `prefers-reduced-motion`
+- Portuguese only; **no comments** (Giscus removed 2026-07-03, ADR-006); no newsletter; no CMS (GitHub web editor)
+- Motion CSS-only (+ tiny useInView/ReadingProgress hooks), respects `prefers-reduced-motion`
+- Design tokens: semantic CSS vars in `app/globals.css` (`:root` light / `.dark` dark), Tailwind maps them alpha-aware; Utopia fluid type (`text-fluid-*`) and space (`*-flow-*`) scales (ADR-007). Never hardcode palette hexes in components.
 - Content read ONLY through `lib/content.ts`; zod-validated front matter fails builds loudly
 - **No `searchParams` in any page** — opts route into dynamic rendering, violates pure-SSG (ADR-005: `/poemas` renders all poems statically, chips link to `/categorias/[slug]`)
 
@@ -44,6 +45,6 @@ Static Next.js poetry blog + creative portfolio for a non-developer owner who ed
 - `public/search-index.json` is generated, gitignored
 - Cover images are on-brand SVG placeholders (`public/images/**`) — owner replaces with real art; `content/_templates/*` intentionally reference `.jpg` as examples
 
-## Outstanding (owner manual step)
+## Outstanding
 
-**Giscus comments dead until:** GitHub → `tonmoysarker/sandyla` → Settings → enable Discussions → create category **"Poemas"** → install giscus app (github.com/apps/giscus). Config already in `content/settings.yaml`.
+- None. (Giscus manual setup step is obsolete — comments removed entirely.)
