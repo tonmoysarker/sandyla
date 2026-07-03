@@ -1,4 +1,46 @@
-# Guia de Conteúdo
+# Content Guide
+
+> **Also available in:** [Português (ver abaixo)](#português-1)
+
+How to add new poems or projects to the site without touching code.
+
+## Adding a Poem
+
+1. Copy `content/_templates/poem.mdx`.
+2. Paste it into `content/poems/` with a new filename (use `-` between words, no special characters, ex: `name-of-poem.mdx`).
+3. Fill in the fields at the top of the file (between the `---` lines):
+   - `title`: the poem's title
+   - `slug`: must match the filename, without `.mdx`
+   - `date`: in format YYYY-MM-DD
+   - `excerpt`: short phrase that appears in listings
+   - `category`: one of the existing categories in `content/categories.yaml` (sombras, luz, ilustracao, manuscrito)
+   - `tags`: list of keywords
+   - `featured`: `true` to highlight on the home page
+   - `published`: `false` while drafting, `true` to publish
+   - `coverImage`: path to the cover image (upload the image to `public/images/poems/`)
+4. Write the poem below the second `---` line.
+5. Save, commit, and push to GitHub. The site updates automatically within a few minutes.
+
+## Adding a Portfolio Project
+
+Same process, using `content/_templates/project.mdx` and saving to `content/projects/`.
+
+## Editing General Site Text
+
+- Home page text: `content/pages/home.yaml`
+- About page text: `content/pages/about.mdx`
+- Site name, navigation menu, social links, featured quote (home page quote): `content/settings.yaml`
+- Category list: `content/categories.yaml`
+
+## What NOT to Edit
+
+Nothing inside `/app`, `/components`, or `/lib` — these are code files. Only edit files inside `/content`.
+
+---
+
+# Português
+
+## Guia de Conteúdo
 
 Como adicionar um novo poema ou projeto ao site, sem precisar mexer em código.
 
