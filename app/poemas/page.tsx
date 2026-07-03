@@ -1,6 +1,8 @@
 import { getAllPoems, getCategories } from "@/lib/content";
 import { PoemCard } from "@/components/poems/PoemCard";
 import { SearchBar } from "@/components/search/SearchBar";
+import { PageHeader } from "@/components/ui/PageHeader";
+import { Reveal } from "@/components/ui/Reveal";
 
 export const metadata = {
   title: "Poemas | Versos",
@@ -17,34 +19,36 @@ export default function PoemasPage() {
   ];
 
   return (
-    <main className="px-6 py-12 md:px-16">
-      <h1 className="font-display text-fluid-2xl text-accent">Poemas</h1>
-      <p className="mt-2 max-w-xl font-body text-ink/80">
-        Uma coleção de versos moldados em sombras, luz e todo o sentimento que existe entre elas.
-      </p>
-      <div className="mt-6 max-w-md">
+    <main className="mx-auto max-w-content px-flow-s py-flow-xl md:px-flow-l">
+      <PageHeader
+        title="Poemas"
+        subtitle="Uma coleção de versos moldados em sombras, luz e todo o sentimento que existe entre elas."
+      />
+      <div className="mx-auto mt-flow-l max-w-md">
         <SearchBar />
       </div>
-      <div className="mt-8 flex flex-wrap gap-3">
+      <div className="mt-flow-m flex flex-wrap justify-center gap-flow-2xs">
         {filterOptions.map((option) => (
           <a
             key={option.slug}
             href={option.href}
-            className={`rounded-full border px-4 py-1.5 font-label text-fluid-xs uppercase tracking-wide ${
+            className={`rounded-full border px-4 py-1.5 font-label text-fluid-xs uppercase tracking-[0.1em] transition-all duration-organic-base ease-organic ${
               option.slug === "todos"
                 ? "border-accent bg-accent text-on-accent"
-                : "border-ink/30 text-ink/70 hover:border-accent hover:text-accent"
+                : "border-outline-variant text-ink/70 hover:border-accent hover:text-accent hover:glow-soft"
             }`}
           >
             {option.label}
           </a>
         ))}
       </div>
-      <div className="mt-8 grid gap-6 md:grid-cols-3">
-        {poems.map((poem, index) => (
-          <PoemCard key={poem.slug} poem={poem} variant={index} />
-        ))}
-      </div>
+      <Reveal className="mt-flow-xl">
+        <div className="grid gap-flow-m md:grid-cols-3">
+          {poems.map((poem, index) => (
+            <PoemCard key={poem.slug} poem={poem} variant={index} />
+          ))}
+        </div>
+      </Reveal>
     </main>
   );
 }

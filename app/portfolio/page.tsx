@@ -1,6 +1,8 @@
 import { getAllProjects } from "@/lib/content";
 import { ProjectCard } from "@/components/portfolio/ProjectCard";
 import { FeaturedProjectCard } from "@/components/portfolio/FeaturedProjectCard";
+import { PageHeader } from "@/components/ui/PageHeader";
+import { Reveal } from "@/components/ui/Reveal";
 
 export const metadata = {
   title: "Portfólio | Versos",
@@ -13,21 +15,23 @@ export default function PortfolioPage() {
   const rest = projects.filter((project) => project.slug !== featured?.slug);
 
   return (
-    <main className="px-6 py-12 md:px-16">
-      <h1 className="font-display text-fluid-2xl text-accent">Portfólio Criativo</h1>
-      <p className="mt-2 max-w-xl font-body text-ink/80">
-        Uma seleção de ilustrações, manuscritos e outras formas de expressão artística.
-      </p>
+    <main className="mx-auto max-w-content px-flow-s py-flow-xl md:px-flow-l">
+      <PageHeader
+        title="Portfólio Criativo"
+        subtitle="Uma seleção de ilustrações, manuscritos e outras formas de expressão artística."
+      />
       {featured ? (
-        <div className="mt-8">
+        <Reveal className="mt-flow-xl">
           <FeaturedProjectCard project={featured} />
-        </div>
+        </Reveal>
       ) : null}
-      <div className="mt-8 grid gap-6 md:grid-cols-3">
-        {rest.map((project, index) => (
-          <ProjectCard key={project.slug} project={project} variant={index} />
-        ))}
-      </div>
+      <Reveal className="mt-flow-l">
+        <div className="grid gap-flow-m md:grid-cols-3">
+          {rest.map((project, index) => (
+            <ProjectCard key={project.slug} project={project} variant={index} />
+          ))}
+        </div>
+      </Reveal>
     </main>
   );
 }

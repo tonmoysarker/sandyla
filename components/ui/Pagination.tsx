@@ -18,8 +18,10 @@ export function Pagination({
           key={page}
           href={`${baseHref}?page=${page}`}
           aria-current={page === currentPage ? "page" : undefined}
-          className={`rounded-soft px-3 py-1 transition-colors duration-organic-fast ease-organic ${
-            page === currentPage ? "bg-accent text-on-accent" : "text-ink/70 hover:text-accent"
+          className={`rounded-soft border px-3 py-1 transition-all duration-organic-base ease-organic ${
+            page === currentPage
+              ? "border-accent bg-accent text-on-accent"
+              : "border-transparent text-ink/70 hover:border-outline-variant hover:text-accent"
           }`}
         >
           {page}

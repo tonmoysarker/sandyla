@@ -100,6 +100,97 @@
   }
 }
 
+@layer components {
+  /* Stitch buttons: 1px gold-leaf border; hover fills with foil gradient and inverts text */
+  .btn {
+    @apply relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-soft px-flow-m py-flow-xs font-label text-fluid-xs uppercase tracking-[0.18em];
+    isolation: isolate;
+    transition:
+      color var(--duration-base) var(--ease-grand),
+      border-color var(--duration-base) var(--ease-grand),
+      box-shadow var(--duration-base) var(--ease-grand);
+  }
+  .btn-primary {
+    border: 1px solid rgb(var(--accent));
+    color: rgb(var(--accent));
+  }
+  .btn-primary::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image: linear-gradient(
+      110deg,
+      rgb(var(--accent-strong)),
+      rgb(var(--accent)) 50%,
+      rgb(var(--accent-strong))
+    );
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--duration-base) var(--ease-grand);
+  }
+  .btn-primary:hover,
+  .btn-primary:focus-visible {
+    color: rgb(var(--on-accent));
+    box-shadow: 0 0 20px rgb(var(--accent) / 0.25);
+  }
+  .btn-primary:hover::before,
+  .btn-primary:focus-visible::before {
+    transform: scaleX(1);
+  }
+  .btn-ghost {
+    border: 1px solid rgb(var(--outline-variant));
+    color: rgb(var(--ink) / 0.85);
+  }
+  .btn-ghost:hover,
+  .btn-ghost:focus-visible {
+    border-color: rgb(var(--accent));
+    color: rgb(var(--accent));
+    box-shadow: 0 0 16px rgb(var(--glow) / 0.12);
+  }
+
+  /* Illuminated-manuscript drop cap on the first paragraph */
+  .drop-cap > p:first-of-type::first-letter {
+    float: left;
+    font-family: var(--font-playfair), serif;
+    font-size: 3.1em;
+    line-height: 0.8;
+    padding-right: 0.14em;
+    padding-top: 0.08em;
+    color: rgb(var(--accent));
+  }
+
+  /* Thin ring around a small ornament icon (Stitch "circular-icon") */
+  .circle-icon {
+    @apply flex items-center justify-center rounded-full border;
+    border-color: rgb(var(--outline-variant));
+    transition:
+      border-color var(--duration-base) var(--ease-organic),
+      box-shadow var(--duration-base) var(--ease-organic);
+  }
+  .group:hover .circle-icon,
+  .circle-icon:hover {
+    border-color: rgb(var(--accent) / 0.7);
+    box-shadow: 0 0 14px rgb(var(--glow) / 0.15);
+  }
+
+  /* Editorial input: bottom border only, blooms gold on focus */
+  .input-line {
+    @apply w-full bg-transparent px-1 py-flow-2xs font-body text-fluid-base text-ink;
+    border: 0;
+    border-bottom: 1px solid rgb(var(--outline-variant));
+    border-radius: 0;
+    transition: border-color var(--duration-base) var(--ease-organic);
+  }
+  .input-line::placeholder {
+    color: rgb(var(--ink) / 0.4);
+  }
+  .input-line:focus {
+    outline: none;
+    border-bottom-color: rgb(var(--accent));
+  }
+}
+
 @layer utilities {
   /* Center-out underline sweep for nav and inline links */
   .link-underline {
