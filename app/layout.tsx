@@ -21,7 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${playfairDisplay.variable} ${ebGaramond.variable} ${hankenGrotesk.variable}`}
     >
       <body>
-        <ThemeProvider attribute="class" defaultTheme="dark">
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
           <Header nav={settings.nav} siteTitle={settings.siteTitle} />
           {children}
           <Footer settings={settings} />

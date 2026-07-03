@@ -14,8 +14,15 @@ export function SearchOverlay() {
       }
       if (event.key === "Escape") setOpen(false);
     }
+    function handleOpen() {
+      setOpen(true);
+    }
     window.addEventListener("keydown", handleKeydown);
-    return () => window.removeEventListener("keydown", handleKeydown);
+    window.addEventListener("versos:open-search", handleOpen);
+    return () => {
+      window.removeEventListener("keydown", handleKeydown);
+      window.removeEventListener("versos:open-search", handleOpen);
+    };
   }, []);
 
   if (!open) return null;
