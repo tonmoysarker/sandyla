@@ -15,9 +15,9 @@ describe("PoemDetailPage", () => {
     expect(screen.getByText("A Noite Também Escreve")).toBeInTheDocument();
   });
 
-  it("renders the comments section", async () => {
+  it("does not render a commenting system", async () => {
     const Page = await PoemDetailPage({ params: { slug: "entre-silencios-e-suspiros" } });
     render(Page as React.ReactElement);
-    expect(document.querySelector("script[data-repo]")).toBeInTheDocument();
+    expect(document.querySelector("script[data-repo]")).not.toBeInTheDocument();
   });
 });

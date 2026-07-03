@@ -9,7 +9,6 @@ const settings: SiteSettings = {
   nav: [{ label: "Poemas", href: "/poemas" }],
   socials: [{ platform: "instagram", url: "https://instagram.com/versos" }],
   footerQuote: "A poesia é o eco da alma que se recusa a ficar em silêncio.",
-  giscus: { repo: "owner/repo", category: "Poemas" },
 };
 
 describe("Footer", () => {

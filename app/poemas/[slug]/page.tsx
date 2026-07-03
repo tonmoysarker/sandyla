@@ -3,7 +3,6 @@ import { getAllPoems, getPoemBySlug, getRelatedPoems, getSiteSettings } from "@/
 import { buildPoemMetadata, buildPoemJsonLd } from "@/lib/seo";
 import { DetailPage } from "@/components/templates/DetailPage";
 import { RelatedPoems } from "@/components/poems/RelatedPoems";
-import { GiscusComments } from "@/components/comments/GiscusComments";
 
 export function generateStaticParams() {
   return getAllPoems().map((poem) => ({ slug: poem.slug }));
@@ -33,10 +32,6 @@ export default function PoemDetailPage({ params }: { params: { slug: string } })
       </DetailPage>
       <div className="mx-auto max-w-2xl px-6">
         <RelatedPoems poems={related} />
-        <section className="mt-16">
-          <h2 className="font-display text-xl text-gold">Reflexões</h2>
-          <GiscusComments repo={settings.giscus.repo} category={settings.giscus.category} />
-        </section>
       </div>
     </main>
   );

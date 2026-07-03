@@ -23,7 +23,6 @@ const settings: SiteSettings = {
   nav: [],
   socials: [],
   footerQuote: "A poesia é o eco da alma que se recusa a ficar em silêncio.",
-  giscus: { repo: "owner/repo", category: "Poemas" },
 };
 
 describe("buildPoemMetadata", () => {
