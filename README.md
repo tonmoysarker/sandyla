@@ -35,4 +35,6 @@ Colors, type, and spacing are semantic CSS variables in `app/globals.css` (light
 
 ## Adding content
 
-See [CONTENT_GUIDE.md](./CONTENT_GUIDE.md) — written for the site owner, not developers.
+**New to GitHub?** Start here: [COMO_COMEAR.md](./COMO_COMEAR.md) — setup guide for non-technical users with no git account.
+
+Then see [CONTENT_GUIDE.md](./CONTENT_GUIDE.md) — detailed instructions for adding poems, projects, and editing site text.
