@@ -14,15 +14,22 @@ export function SearchOverlay() {
       }
       if (event.key === "Escape") setOpen(false);
     }
+    function handleOpen() {
+      setOpen(true);
+    }
     window.addEventListener("keydown", handleKeydown);
-    return () => window.removeEventListener("keydown", handleKeydown);
+    window.addEventListener("versos:open-search", handleOpen);
+    return () => {
+      window.removeEventListener("keydown", handleKeydown);
+      window.removeEventListener("versos:open-search", handleOpen);
+    };
   }, []);
 
   if (!open) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-start justify-center bg-obsidian/80 pt-24 backdrop-blur-sm">
-      <div className="w-full max-w-lg rounded-soft border border-gold-container/40 bg-obsidian-low p-6">
+    <div className="fixed inset-0 z-[100] flex items-start justify-center bg-surface/80 pt-24 backdrop-blur-sm">
+      <div className="w-full max-w-lg rounded-soft border border-outline-variant bg-surface-low p-6">
         <SearchBar />
       </div>
     </div>

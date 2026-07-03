@@ -21,10 +21,10 @@ export function FilterChips({
             type="button"
             aria-pressed={isActive}
             onClick={() => onSelect(option.slug)}
-            className={`rounded-full border px-4 py-1.5 font-label text-xs uppercase tracking-wide transition-all duration-organic-fast ease-organic ${
+            className={`rounded-full border px-4 py-1.5 font-label text-fluid-xs uppercase tracking-[0.1em] transition-all duration-organic-base ease-organic ${
               isActive
-                ? "border-gold bg-gold text-obsidian"
-                : "border-ink/30 text-ink/70 hover:border-gold hover:text-gold"
+                ? "border-accent bg-accent text-on-accent"
+                : "border-outline-variant text-ink/70 hover:border-accent hover:text-accent hover:glow-soft"
             }`}
           >
             {option.label}

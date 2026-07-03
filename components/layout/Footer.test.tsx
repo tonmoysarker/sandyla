@@ -9,13 +9,13 @@ const settings: SiteSettings = {
   nav: [{ label: "Poemas", href: "/poemas" }],
   socials: [{ platform: "instagram", url: "https://instagram.com/versos" }],
   footerQuote: "A poesia é o eco da alma que se recusa a ficar em silêncio.",
-  giscus: { repo: "owner/repo", category: "Poemas" },
 };
 
 describe("Footer", () => {
-  it("renders the footer quote", () => {
+  it("renders the site tagline instead of duplicating the home quote", () => {
     render(<Footer settings={settings} />);
-    expect(screen.getByText(new RegExp(settings.footerQuote))).toBeInTheDocument();
+    expect(screen.getByText(settings.tagline)).toBeInTheDocument();
+    expect(screen.queryByText(new RegExp(settings.footerQuote))).not.toBeInTheDocument();
   });
 
   it("renders nav links", () => {

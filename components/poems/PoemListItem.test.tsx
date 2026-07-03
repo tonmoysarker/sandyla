@@ -27,8 +27,8 @@ describe("PoemListItem", () => {
     expect(screen.getByText("18 de maio de 2024")).toBeInTheDocument();
   });
 
-  it("renders a decorative RoseBullet icon", () => {
+  it("renders a decorative flourish icon in a circular frame", () => {
     render(<PoemListItem poem={poem} />);
-    expect(screen.getByTestId("rose-bullet")).toBeInTheDocument();
+    expect(screen.getByTestId("icon-flourish")).toBeInTheDocument();
   });
 });

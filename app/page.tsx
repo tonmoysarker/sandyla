@@ -4,6 +4,8 @@ import { PoemListItem } from "@/components/poems/PoemListItem";
 import { FeaturedPoemCard } from "@/components/poems/FeaturedPoemCard";
 import { TeaserCard } from "@/components/home/TeaserCard";
 import { QuoteBanner } from "@/components/ui/QuoteBanner";
+import { SectionHeader } from "@/components/ui/SectionHeader";
+import { Reveal } from "@/components/ui/Reveal";
 
 export default function HomePage() {
   const home = getHomeContent();
@@ -16,32 +18,49 @@ export default function HomePage() {
     <main>
       <Hero {...home} />
 
-      <section className="grid gap-10 px-6 py-16 md:grid-cols-2 md:px-16">
-        <div>
-          <h2 className="font-display text-2xl text-gold">Últimos Poemas</h2>
-          <ul className="mt-6 space-y-6">
-            {latestPoems.map((poem) => (
-              <PoemListItem key={poem.slug} poem={poem} />
-            ))}
-          </ul>
+      <section className="mx-auto max-w-content px-flow-s py-flow-2xl md:px-flow-l">
+        <Reveal>
+          <SectionHeader
+            title="Últimos Poemas"
+            action={{ label: "Ver todos os poemas", href: "/poemas" }}
+          />
+        </Reveal>
+        <div className="mt-flow-l grid gap-flow-l md:grid-cols-2">
+          <Reveal>
+            <ul className="space-y-flow-m">
+              {latestPoems.map((poem) => (
+                <PoemListItem key={poem.slug} poem={poem} />
+              ))}
+            </ul>
+          </Reveal>
+          {featuredPoem ? (
+            <Reveal delay={120}>
+              <FeaturedPoemCard poem={featuredPoem} />
+            </Reveal>
+          ) : null}
         </div>
-        {featuredPoem ? <FeaturedPoemCard poem={featuredPoem} /> : null}
       </section>
 
-      <section className="grid gap-8 px-6 py-16 md:grid-cols-2 md:px-16">
-        <TeaserCard
-          title="Sobre Mim"
-          description="Apaixonada por palavras, natureza e tudo que toca a alma."
-          cta={{ label: "Conhecer minha história", href: "/sobre" }}
-        />
-        <TeaserCard
-          title="Portfólio"
-          description="Além dos versos, exploro a criatividade em diferentes formas."
-          cta={{ label: "Ver portfólio", href: "/portfolio" }}
-        />
+      <section className="mx-auto grid max-w-content gap-flow-m px-flow-s pb-flow-2xl md:grid-cols-2 md:px-flow-l">
+        <Reveal>
+          <TeaserCard
+            title="Sobre Mim"
+            description="Apaixonada por palavras, natureza e tudo que toca a alma."
+            cta={{ label: "Conhecer minha história", href: "/sobre" }}
+          />
+        </Reveal>
+        <Reveal delay={120}>
+          <TeaserCard
+            title="Portfólio"
+            description="Além dos versos, exploro a criatividade em diferentes formas."
+            cta={{ label: "Ver portfólio", href: "/portfolio" }}
+          />
+        </Reveal>
       </section>
 
-      <QuoteBanner quote={settings.footerQuote} />
+      <Reveal>
+        <QuoteBanner quote={settings.footerQuote} />
+      </Reveal>
     </main>
   );
 }

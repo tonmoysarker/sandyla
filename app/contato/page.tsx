@@ -1,4 +1,6 @@
 import { getSiteSettings } from "@/lib/content";
+import { PageHeader } from "@/components/ui/PageHeader";
+import { SendIcon } from "@/components/ui/icons";
 
 export const metadata = {
   title: "Contato | Versos",
@@ -9,40 +11,31 @@ export default function ContatoPage() {
   const settings = getSiteSettings();
 
   return (
-    <main className="mx-auto max-w-lg px-6 py-16">
-      <h1 className="font-display text-3xl text-gold">Contato</h1>
-      <p className="mt-2 font-body text-ink/80">Envie uma mensagem ou entre em contato pelas redes sociais.</p>
+    <main className="mx-auto max-w-lg px-flow-s py-flow-xl">
+      <PageHeader
+        title="Contato"
+        subtitle="Envie uma mensagem ou entre em contato pelas redes sociais."
+      />
       {settings.contactFormEndpoint ? (
-        <form action={settings.contactFormEndpoint} method="POST" className="mt-8 space-y-4">
-          <input
-            type="text"
-            name="name"
-            placeholder="Seu nome"
-            required
-            className="w-full rounded-soft border border-ink/30 bg-obsidian-low px-4 py-2 text-ink"
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="Seu e-mail"
-            required
-            className="w-full rounded-soft border border-ink/30 bg-obsidian-low px-4 py-2 text-ink"
-          />
+        <form action={settings.contactFormEndpoint} method="POST" className="mt-flow-l space-y-flow-m">
+          <input type="text" name="name" placeholder="Seu nome" required className="input-line" />
+          <input type="email" name="email" placeholder="Seu e-mail" required className="input-line" />
           <textarea
             name="message"
             placeholder="Sua mensagem"
             required
             rows={5}
-            className="w-full rounded-soft border border-ink/30 bg-obsidian-low px-4 py-2 text-ink"
+            className="input-line resize-y"
           />
-          <button type="submit" className="rounded-soft border border-gold bg-gold px-6 py-3 font-label text-sm uppercase tracking-wide text-obsidian">
+          <button type="submit" className="btn btn-primary">
             Enviar
+            <SendIcon className="h-4 w-4" />
           </button>
         </form>
       ) : (
-        <p className="mt-8 font-body text-ink/80">
+        <p className="mt-flow-l text-center font-body text-ink/80">
           Escreva para{" "}
-          <a href="mailto:contato@versos.example" className="text-gold underline">
+          <a href="mailto:contato@versos.example" className="link-underline text-accent">
             contato@versos.example
           </a>
           .

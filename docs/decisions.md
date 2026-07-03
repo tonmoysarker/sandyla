@@ -24,3 +24,13 @@
 
 **Decision:** `/poemas` renders every published poem statically; there is no `?page=N` pagination, and category filtering links to the static `/categorias/[slug]` pages.
 **Reason:** Reading `searchParams` in a Next.js App Router page opts it into server-side dynamic rendering, which violates the pure-SSG constraint (every route must prerender). At the current content volume a single page is fine. If the archive grows past ~30 poems, add statically generated `/poemas/pagina/[n]` routes (the `Pagination` component already exists for this).
+
+## ADR-006: No commenting system
+
+**Decision:** The Giscus comments integration (ADR-era assumption from the original spec) is removed entirely — no comments UI on poems, no `giscus` block in `content/settings.yaml`, no `@giscus/react` dependency.
+**Reason:** The site owner decided the site does not need comments. Giscus also required a manual GitHub setup step (enable Discussions, install the app) that was never completed, so the widget was dead weight on every poem page. Supersedes the comments row in the 2026-07-03 design spec.
+
+## ADR-007: Semantic CSS-variable design tokens with Utopia fluid scales
+
+**Decision:** All color comes from semantic CSS custom properties (`--surface`, `--ink`, `--accent`, `--secondary`, `--outline`, …) defined twice: on `:root` for the light "Aged Parchment" palette and on `.dark` for the "Obsidian Night" palette from the Stitch "Nocturne & Filigree" design system. Tailwind consumes them alpha-aware via `rgb(var(--x) / <alpha-value>)`. Type and spacing use Utopia (utopia.fyi) `clamp()` scales exposed as `--step-*` / `--space-*` and mapped to `text-fluid-*` / `*-flow-*` utilities.
+**Reason:** The first implementation hardcoded dark-palette hex values into Tailwind classes (`bg-obsidian`, `text-ink` fixed to `#e5e2e1`), so the `next-themes` class flip changed nothing — light mode rendered dark colors. Semantic variables make theming automatic for every component, and fluid scales replace fixed px sizes so typography/spacing adapt continuously across viewports instead of jumping at breakpoints. Components must use semantic classes (`bg-surface`, `text-accent`); raw palette classes no longer exist.

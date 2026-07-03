@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { getAllProjects, getProjectBySlug, getSiteSettings } from "@/lib/content";
 import { buildProjectMetadata, buildProjectJsonLd } from "@/lib/seo";
 import { DetailPage } from "@/components/templates/DetailPage";
+import { formatDate } from "@/lib/format-date";
 
 export function generateStaticParams() {
   return getAllProjects().map((project) => ({ slug: project.slug }));
@@ -22,7 +23,7 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
   return (
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <DetailPage title={project.title} meta={project.date}>
+      <DetailPage title={project.title} eyebrow={project.category} meta={formatDate(project.date)}>
         {project.content.split("\n\n").map((paragraph, index) => (
           <p key={index}>{paragraph}</p>
         ))}

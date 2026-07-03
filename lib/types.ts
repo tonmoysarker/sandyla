@@ -60,7 +60,6 @@ export const SiteSettingsSchema = z.object({
   nav: z.array(z.object({ label: z.string(), href: z.string() })),
   socials: z.array(z.object({ platform: z.string(), url: z.string() })),
   footerQuote: z.string(),
-  giscus: z.object({ repo: z.string(), category: z.string() }),
   contactFormEndpoint: z.string().optional(),
 });
 export type SiteSettings = z.infer<typeof SiteSettingsSchema>;

@@ -27,7 +27,7 @@ Mesmo processo, usando `content/_templates/project.mdx` e salvando em `content/p
 
 - Textos da página inicial: `content/pages/home.yaml`
 - Texto da página Sobre: `content/pages/about.mdx`
-- Nome do site, menu de navegação, redes sociais, frase do rodapé: `content/settings.yaml`
+- Nome do site, menu de navegação, redes sociais, frase de destaque (citação da página inicial): `content/settings.yaml`
 - Lista de categorias: `content/categories.yaml`
 
 ## O que NÃO editar

@@ -2,15 +2,267 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+ * Design tokens — Stitch "Nocturne & Filigree" design system.
+ * Colors are RGB triplets so Tailwind can apply alpha (rgb(var(--x) / <alpha>)).
+ * Light = Aged Parchment, Dark = Obsidian Night (primary experience).
+ */
 :root {
-  --ease-organic: cubic-bezier(0.4, 0, 0.2, 1);
+  /* Aged Parchment (light) */
+  --surface: 244 236 220;
+  --surface-low: 237 226 204;
+  --surface-mid: 233 221 196;
+  --surface-high: 226 211 180;
+  --ink: 43 38 34;
+  --ink-muted: 92 82 64;
+  --outline: 138 122 88;
+  --outline-variant: 203 188 152;
+  --accent: 140 47 57; /* muted velvet crimson */
+  --accent-strong: 111 33 41;
+  --on-accent: 247 239 223;
+  --secondary: 122 95 46; /* bronze filigree */
+  --secondary-container: 229 213 174;
+  --on-secondary-container: 74 57 25;
+  --tertiary: 78 62 99;
+  --glow: 140 47 57;
+
+  /* Utopia fluid type — 320→1240px, 1.2→1.25 ratio, base 18→20px (utopia.fyi) */
+  --step--2: clamp(0.7813rem, 0.7747rem + 0.0326vw, 0.8rem);
+  --step--1: clamp(0.9375rem, 0.9158rem + 0.1087vw, 1rem);
+  --step-0: clamp(1.125rem, 1.0815rem + 0.2174vw, 1.25rem);
+  --step-1: clamp(1.35rem, 1.2761rem + 0.3696vw, 1.5625rem);
+  --step-2: clamp(1.62rem, 1.5041rem + 0.5793vw, 1.9531rem);
+  --step-3: clamp(1.944rem, 1.771rem + 0.8651vw, 2.4414rem);
+  --step-4: clamp(2.3328rem, 2.0827rem + 1.2504vw, 3.0518rem);
+  --step-5: clamp(2.7994rem, 2.4462rem + 1.7658vw, 3.8147rem);
+
+  /* Utopia fluid space — same viewport range, 18→20px base */
+  --space-3xs: 0.3125rem;
+  --space-2xs: clamp(0.5625rem, 0.5408rem + 0.1087vw, 0.625rem);
+  --space-xs: clamp(0.875rem, 0.8533rem + 0.1087vw, 0.9375rem);
+  --space-s: clamp(1.125rem, 1.0815rem + 0.2174vw, 1.25rem);
+  --space-m: clamp(1.6875rem, 1.6223rem + 0.3261vw, 1.875rem);
+  --space-l: clamp(2.25rem, 2.163rem + 0.4348vw, 2.5rem);
+  --space-xl: clamp(3.375rem, 3.2446rem + 0.6522vw, 3.75rem);
+  --space-2xl: clamp(4.5rem, 4.3261rem + 0.8696vw, 5rem);
+  --space-3xl: clamp(6.75rem, 6.4891rem + 1.3043vw, 7.5rem);
+
+  --ease-organic: cubic-bezier(0.33, 1, 0.68, 1);
+  --ease-grand: cubic-bezier(0.65, 0, 0.35, 1);
   --duration-fast: 150ms;
-  --duration-base: 250ms;
-  --duration-slow: 350ms;
+  --duration-base: 300ms;
+  --duration-slow: 500ms;
 }
 
-body {
-  @apply bg-obsidian text-ink font-body;
+.dark {
+  /* Obsidian Night (dark) — exact hex from Stitch design tokens */
+  --surface: 19 19 19;
+  --surface-low: 28 27 27;
+  --surface-mid: 32 31 31;
+  --surface-high: 42 42 42;
+  --ink: 229 226 225;
+  --ink-muted: 208 197 175;
+  --outline: 153 144 124;
+  --outline-variant: 77 70 53;
+  --accent: 242 202 80; /* gold leaf */
+  --accent-strong: 212 175 55;
+  --on-accent: 60 47 0;
+  --secondary: 149 211 186; /* stained-glass emerald */
+  --secondary-container: 11 81 61;
+  --on-secondary-container: 131 194 169;
+  --tertiary: 219 198 244;
+  --glow: 149 211 186;
+}
+
+@layer base {
+  body {
+    @apply bg-surface font-body text-fluid-base text-ink;
+  }
+
+  ::selection {
+    background-color: rgb(var(--accent) / 0.85);
+    color: rgb(var(--on-accent));
+  }
+
+  :focus-visible {
+    outline: 2px solid rgb(var(--accent));
+    outline-offset: 2px;
+  }
+
+  /* Soft cross-fade when the theme flips */
+  @media (prefers-reduced-motion: no-preference) {
+    body,
+    body * {
+      transition-property: background-color, border-color, color, fill, stroke;
+      transition-duration: var(--duration-base);
+      transition-timing-function: var(--ease-organic);
+    }
+  }
+}
+
+@layer components {
+  /* Stitch buttons: 1px gold-leaf border; hover fills with foil gradient and inverts text */
+  .btn {
+    @apply relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-soft px-flow-m py-flow-xs font-label text-fluid-xs uppercase tracking-[0.18em];
+    isolation: isolate;
+    transition:
+      color var(--duration-base) var(--ease-grand),
+      border-color var(--duration-base) var(--ease-grand),
+      box-shadow var(--duration-base) var(--ease-grand);
+  }
+  .btn-primary {
+    border: 1px solid rgb(var(--accent));
+    color: rgb(var(--accent));
+  }
+  .btn-primary::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image: linear-gradient(
+      110deg,
+      rgb(var(--accent-strong)),
+      rgb(var(--accent)) 50%,
+      rgb(var(--accent-strong))
+    );
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--duration-base) var(--ease-grand);
+  }
+  .btn-primary:hover,
+  .btn-primary:focus-visible {
+    color: rgb(var(--on-accent));
+    box-shadow: 0 0 20px rgb(var(--accent) / 0.25);
+  }
+  .btn-primary:hover::before,
+  .btn-primary:focus-visible::before {
+    transform: scaleX(1);
+  }
+  .btn-ghost {
+    border: 1px solid rgb(var(--outline-variant));
+    color: rgb(var(--ink) / 0.85);
+  }
+  .btn-ghost:hover,
+  .btn-ghost:focus-visible {
+    border-color: rgb(var(--accent));
+    color: rgb(var(--accent));
+    box-shadow: 0 0 16px rgb(var(--glow) / 0.12);
+  }
+
+  /* Illuminated-manuscript drop cap on the first paragraph */
+  .drop-cap > p:first-of-type::first-letter {
+    float: left;
+    font-family: var(--font-playfair), serif;
+    font-size: 3.1em;
+    line-height: 0.8;
+    padding-right: 0.14em;
+    padding-top: 0.08em;
+    color: rgb(var(--accent));
+  }
+
+  /* Thin ring around a small ornament icon (Stitch "circular-icon") */
+  .circle-icon {
+    @apply flex items-center justify-center rounded-full border;
+    border-color: rgb(var(--outline-variant));
+    transition:
+      border-color var(--duration-base) var(--ease-organic),
+      box-shadow var(--duration-base) var(--ease-organic);
+  }
+  .group:hover .circle-icon,
+  .circle-icon:hover {
+    border-color: rgb(var(--accent) / 0.7);
+    box-shadow: 0 0 14px rgb(var(--glow) / 0.15);
+  }
+
+  /* Editorial input: bottom border only, blooms gold on focus */
+  .input-line {
+    @apply w-full bg-transparent px-1 py-flow-2xs font-body text-fluid-base text-ink;
+    border: 0;
+    border-bottom: 1px solid rgb(var(--outline-variant));
+    border-radius: 0;
+    transition: border-color var(--duration-base) var(--ease-organic);
+  }
+  .input-line::placeholder {
+    color: rgb(var(--ink) / 0.4);
+  }
+  .input-line:focus {
+    outline: none;
+    border-bottom-color: rgb(var(--accent));
+  }
+}
+
+@layer utilities {
+  /* Center-out underline sweep for nav and inline links */
+  .link-underline {
+    position: relative;
+  }
+  .link-underline::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -0.25em;
+    height: 1px;
+    width: 100%;
+    background-color: rgb(var(--accent));
+    transform: translateX(-50%) scaleX(0);
+    transform-origin: center;
+    transition: transform var(--duration-base) var(--ease-organic);
+  }
+  .link-underline:hover::after,
+  .link-underline[aria-current="page"]::after {
+    transform: translateX(-50%) scaleX(1);
+  }
+
+  /* Soft tinted glow (emerald in dark, crimson in light) */
+  .glow-soft {
+    box-shadow: 0 0 24px rgb(var(--glow) / 0.12);
+  }
+  .glow-accent {
+    box-shadow: 0 0 20px rgb(var(--accent) / 0.25);
+  }
+
+  /* Stained-glass surface: translucent tint + heavy blur */
+  .stained-glass {
+    background-color: rgb(var(--surface) / 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(1.25rem);
+    transition:
+      opacity var(--duration-slow) var(--ease-organic),
+      transform var(--duration-slow) var(--ease-organic);
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  .page-enter {
+    animation: page-enter var(--duration-slow) var(--ease-organic) both;
+  }
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes drift {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(0.75rem);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -21,5 +273,9 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
   }
 }

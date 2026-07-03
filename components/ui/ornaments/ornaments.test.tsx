@@ -1,8 +1,9 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { VineDivider } from "@/components/ui/ornaments/VineDivider";
-import { RoseBullet } from "@/components/ui/ornaments/RoseBullet";
+import { CornerFlourish } from "@/components/ui/ornaments/CornerFlourish";
 import { ArchFrame } from "@/components/ui/ornaments/ArchFrame";
+import { StainedGlassRose } from "@/components/ui/ornaments/StainedGlassRose";
 
 describe("VineDivider", () => {
   it("renders an svg marked decorative (aria-hidden)", () => {
@@ -11,10 +12,10 @@ describe("VineDivider", () => {
   });
 });
 
-describe("RoseBullet", () => {
+describe("CornerFlourish", () => {
   it("renders an svg marked decorative", () => {
-    render(<RoseBullet />);
-    expect(screen.getByTestId("rose-bullet")).toHaveAttribute("aria-hidden", "true");
+    render(<CornerFlourish />);
+    expect(screen.getByTestId("corner-flourish")).toHaveAttribute("aria-hidden", "true");
   });
 });
 
@@ -26,5 +27,12 @@ describe("ArchFrame", () => {
       </ArchFrame>
     );
     expect(screen.getByAltText("Retrato")).toBeInTheDocument();
+  });
+});
+
+describe("StainedGlassRose", () => {
+  it("is exposed to assistive tech as a labelled image", () => {
+    render(<StainedGlassRose />);
+    expect(screen.getByRole("img")).toHaveAccessibleName(/rosa em vitral/i);
   });
 });
