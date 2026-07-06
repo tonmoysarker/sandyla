@@ -28,8 +28,14 @@ export function SearchOverlay() {
   if (!open) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-start justify-center bg-surface/80 pt-24 backdrop-blur-sm">
-      <div className="w-full max-w-lg rounded-soft border border-outline-variant bg-surface-low p-6">
+    <div
+      className="fixed inset-0 z-[100] flex items-start justify-center bg-surface/80 pt-24 backdrop-blur-sm"
+      onClick={() => setOpen(false)}
+    >
+      <div
+        className="w-full max-w-lg rounded-soft border border-outline-variant bg-surface-low p-6"
+        onClick={(event) => event.stopPropagation()}
+      >
         <SearchBar />
       </div>
     </div>
