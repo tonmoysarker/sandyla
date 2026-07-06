@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { FlourishIcon } from "@/components/ui/icons";
 import { formatDate } from "@/lib/format-date";
 import type { Poem } from "@/lib/content";
@@ -5,7 +6,7 @@ import type { Poem } from "@/lib/content";
 export function PoemListItem({ poem }: { poem: Poem }) {
   return (
     <li>
-      <a href={`/poemas/${poem.slug}`} className="group flex items-start gap-flow-xs">
+      <Link href={`/poemas/${poem.slug}`} className="group flex items-start gap-flow-xs">
         <span className="circle-icon mt-0.5 h-11 w-11 shrink-0 text-secondary/80">
           <FlourishIcon className="h-5 w-5" />
         </span>
@@ -17,7 +18,7 @@ export function PoemListItem({ poem }: { poem: Poem }) {
             {formatDate(poem.date)}
           </span>
         </span>
-      </a>
+      </Link>
     </li>
   );
 }

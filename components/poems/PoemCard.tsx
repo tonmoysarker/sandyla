@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Poem } from "@/lib/content";
 
 export function PoemCard({ poem, variant = 0 }: { poem: Poem; variant?: number }) {
@@ -19,22 +20,22 @@ export function PoemCard({ poem, variant = 0 }: { poem: Poem; variant?: number }
           {poem.category}
         </span>
         <h3 className="mt-flow-2xs font-display text-fluid-md text-ink">
-          <a
+          <Link
             href={`/poemas/${poem.slug}`}
             className="transition-colors duration-organic-fast ease-organic group-hover:text-accent"
           >
             {poem.title}
-          </a>
+          </Link>
         </h3>
         <p className="mt-flow-2xs line-clamp-3 font-body text-fluid-sm text-ink/75">{poem.excerpt}</p>
         <div className="mt-flow-s flex items-center justify-between font-label text-fluid-xs uppercase tracking-[0.1em] text-ink/50">
           <span>{poem.readingTime} min de leitura</span>
-          <a
+          <Link
             href={`/poemas/${poem.slug}`}
             className="link-underline text-accent transition-colors duration-organic-fast ease-organic"
           >
             Ler mais
-          </a>
+          </Link>
         </div>
       </div>
     </article>

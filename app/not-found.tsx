@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { VineDivider } from "@/components/ui/ornaments/VineDivider";
 
 export default function NotFound() {
@@ -9,9 +10,9 @@ export default function NotFound() {
       <p className="max-w-md font-body italic text-ink/75">
         Este verso parece ter se perdido entre as sombras. Volte para continuar a leitura.
       </p>
-      <a href="/" className="btn btn-primary mt-flow-l">
+      <Link href="/" className="btn btn-primary mt-flow-l">
         Voltar ao Início
-      </a>
+      </Link>
     </main>
   );
 }

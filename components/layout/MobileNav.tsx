@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 type NavItem = { label: string; href: string };
 
 export function MobileNav({ nav, open }: { nav: NavItem[]; open: boolean }) {
@@ -14,7 +16,7 @@ export function MobileNav({ nav, open }: { nav: NavItem[]; open: boolean }) {
       }`}
     >
       {nav.map((item, index) => (
-        <a
+        <Link
           key={item.href}
           href={item.href}
           style={{ transitionDelay: open ? `${index * 40}ms` : "0ms" }}
@@ -23,7 +25,7 @@ export function MobileNav({ nav, open }: { nav: NavItem[]; open: boolean }) {
           }`}
         >
           {item.label}
-        </a>
+        </Link>
       ))}
     </nav>
   );

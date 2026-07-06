@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { VineDivider } from "@/components/ui/ornaments/VineDivider";
 import { FlourishIcon, HeartIcon, InstagramIcon, PinterestIcon } from "@/components/ui/icons";
 import type { SiteSettings } from "@/lib/types";
@@ -33,12 +34,12 @@ export function Footer({ settings }: { settings: SiteSettings }) {
             <ul className="mt-flow-xs grid grid-cols-2 gap-x-flow-m gap-y-flow-2xs font-label text-fluid-xs uppercase tracking-[0.15em]">
               {settings.nav.map((item) => (
                 <li key={item.href}>
-                  <a
+                  <Link
                     href={item.href}
                     className="text-ink/70 transition-colors duration-organic-fast ease-organic hover:text-accent"
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

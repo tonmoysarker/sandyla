@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export function Pagination({
   currentPage,
   totalPages,
@@ -14,7 +16,7 @@ export function Pagination({
   return (
     <nav aria-label="Paginação" className="mt-10 flex justify-center gap-3 font-label text-fluid-sm">
       {pages.map((page) => (
-        <a
+        <Link
           key={page}
           href={`${baseHref}?page=${page}`}
           aria-current={page === currentPage ? "page" : undefined}
@@ -25,7 +27,7 @@ export function Pagination({
           }`}
         >
           {page}
-        </a>
+        </Link>
       ))}
     </nav>
   );

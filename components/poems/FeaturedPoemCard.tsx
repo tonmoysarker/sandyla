@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { FlourishIcon } from "@/components/ui/icons";
 import type { Poem } from "@/lib/content";
 
@@ -10,10 +11,10 @@ export function FeaturedPoemCard({ poem }: { poem: Poem }) {
       <h3 className="mt-flow-xs font-display text-fluid-xl leading-tight text-ink">{poem.title}</h3>
       <div className="mt-flow-s h-px w-12 bg-accent/40" aria-hidden="true" />
       <p className="mt-flow-s font-body italic text-ink/75">{poem.excerpt}</p>
-      <a href={`/poemas/${poem.slug}`} className="btn btn-primary mt-flow-m">
+      <Link href={`/poemas/${poem.slug}`} className="btn btn-primary mt-flow-m">
         Ler poema completo
         <FlourishIcon className="h-4 w-4" />
-      </a>
+      </Link>
     </div>
   );
 }

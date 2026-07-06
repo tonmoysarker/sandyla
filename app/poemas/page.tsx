@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { getAllPoems, getCategories } from "@/lib/content";
 import { PoemCard } from "@/components/poems/PoemCard";
 import { SearchBar } from "@/components/search/SearchBar";
@@ -29,7 +30,7 @@ export default function PoemasPage() {
       </div>
       <div className="mt-flow-m flex flex-wrap justify-center gap-flow-2xs">
         {filterOptions.map((option) => (
-          <a
+          <Link
             key={option.slug}
             href={option.href}
             className={`rounded-full border px-4 py-1.5 font-label text-fluid-xs uppercase tracking-[0.1em] transition-all duration-organic-base ease-organic ${
@@ -39,7 +40,7 @@ export default function PoemasPage() {
             }`}
           >
             {option.label}
-          </a>
+          </Link>
         ))}
       </div>
       <Reveal className="mt-flow-xl">

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Project } from "@/lib/content";
 
 export function ProjectCard({ project, variant = 0 }: { project: Project; variant?: number }) {
@@ -19,22 +20,22 @@ export function ProjectCard({ project, variant = 0 }: { project: Project; varian
           {project.category}
         </span>
         <h3 className="mt-flow-2xs font-display text-fluid-md text-ink">
-          <a
+          <Link
             href={`/portfolio/${project.slug}`}
             className="transition-colors duration-organic-fast ease-organic group-hover:text-accent"
           >
             {project.title}
-          </a>
+          </Link>
         </h3>
         <p className="mt-flow-2xs line-clamp-3 font-body text-fluid-sm text-ink/75">
           {project.excerpt}
         </p>
-        <a
+        <Link
           href={`/portfolio/${project.slug}`}
           className="link-underline mt-flow-s inline-block font-label text-fluid-xs uppercase tracking-[0.1em] text-accent"
         >
           Ver projeto
-        </a>
+        </Link>
       </div>
     </article>
   );

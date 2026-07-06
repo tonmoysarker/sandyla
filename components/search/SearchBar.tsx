@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import Fuse from "fuse.js";
 import type { SearchEntry } from "@/lib/search-index";
 
@@ -34,9 +35,9 @@ export function SearchBar() {
           ) : (
             results.map((result) => (
               <li key={result.url}>
-                <a href={result.url} className="font-body text-ink hover:text-accent">
+                <Link href={result.url} className="font-body text-ink hover:text-accent">
                   {result.title}
-                </a>
+                </Link>
               </li>
             ))
           )}

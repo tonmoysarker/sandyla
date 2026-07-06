@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export function SectionHeader({
   title,
   action,
@@ -14,12 +16,12 @@ export function SectionHeader({
         <div className="mt-flow-2xs h-px w-16 bg-accent/40" aria-hidden="true" />
       </div>
       {action ? (
-        <a
+        <Link
           href={action.href}
           className="link-underline self-start font-label text-fluid-xs uppercase tracking-[0.18em] text-accent sm:self-auto"
         >
           {action.label}
-        </a>
+        </Link>
       ) : null}
     </div>
   );

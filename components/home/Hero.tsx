@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { ArchFrame } from "@/components/ui/ornaments/ArchFrame";
 import { CornerFlourish } from "@/components/ui/ornaments/CornerFlourish";
 import { FlourishIcon } from "@/components/ui/icons";
@@ -36,13 +37,13 @@ export function Hero({
           {heroSubtitle}
         </p>
         <div className="mt-flow-l flex flex-wrap gap-flow-s">
-          <a href={heroPrimaryCta.href} className="btn btn-primary">
+          <Link href={heroPrimaryCta.href} className="btn btn-primary">
             {heroPrimaryCta.label}
             <FlourishIcon className="h-4 w-4" />
-          </a>
-          <a href={heroSecondaryCta.href} className="btn btn-ghost">
+          </Link>
+          <Link href={heroSecondaryCta.href} className="btn btn-ghost">
             {heroSecondaryCta.label}
-          </a>
+          </Link>
         </div>
       </div>
       <div className="relative mx-auto w-full max-w-sm">

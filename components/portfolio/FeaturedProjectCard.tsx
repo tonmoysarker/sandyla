@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { FlourishIcon } from "@/components/ui/icons";
 import type { Project } from "@/lib/content";
 
@@ -21,10 +22,10 @@ export function FeaturedProjectCard({ project }: { project: Project }) {
         </h3>
         <div className="mt-flow-s h-px w-12 bg-accent/40" aria-hidden="true" />
         <p className="mt-flow-s font-body italic text-ink/75">{project.excerpt}</p>
-        <a href={`/portfolio/${project.slug}`} className="btn btn-primary mt-flow-m">
+        <Link href={`/portfolio/${project.slug}`} className="btn btn-primary mt-flow-m">
           Ver projeto completo
           <FlourishIcon className="h-4 w-4" />
-        </a>
+        </Link>
       </div>
     </div>
   );
