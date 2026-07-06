@@ -28,6 +28,8 @@ describe("Hero", () => {
     render(<Hero {...props} />);
     const section = screen.getByTestId("hero-section");
     expect(section.className).toMatch(/md:grid-cols-2/);
-    expect(screen.getByTestId("stained-glass-rose")).toBeInTheDocument();
+    expect(
+      screen.getByAltText("Ilustração de uma rosa em vitral dentro de um arco gótico")
+    ).toBeInTheDocument();
   });
 });

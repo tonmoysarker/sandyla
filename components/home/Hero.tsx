@@ -1,5 +1,5 @@
+import Image from "next/image";
 import { ArchFrame } from "@/components/ui/ornaments/ArchFrame";
-import { StainedGlassRose } from "@/components/ui/ornaments/StainedGlassRose";
 import { CornerFlourish } from "@/components/ui/ornaments/CornerFlourish";
 import { FlourishIcon } from "@/components/ui/icons";
 
@@ -48,7 +48,14 @@ export function Hero({
       <div className="relative mx-auto w-full max-w-sm">
         <CornerFlourish className="absolute -left-8 -top-8 opacity-40" />
         <ArchFrame>
-          <StainedGlassRose />
+          <Image
+            src="/flower-window-v2.webp"
+            alt="Ilustração de uma rosa em vitral dentro de um arco gótico"
+            fill
+            priority
+            sizes="(min-width: 768px) 24rem, 90vw"
+            className="object-cover"
+          />
         </ArchFrame>
         <CornerFlourish className="absolute -bottom-8 -right-8 rotate-180 opacity-40" />
       </div>

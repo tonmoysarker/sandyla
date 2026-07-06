@@ -3,7 +3,6 @@ import { render, screen } from "@testing-library/react";
 import { VineDivider } from "@/components/ui/ornaments/VineDivider";
 import { CornerFlourish } from "@/components/ui/ornaments/CornerFlourish";
 import { ArchFrame } from "@/components/ui/ornaments/ArchFrame";
-import { StainedGlassRose } from "@/components/ui/ornaments/StainedGlassRose";
 
 describe("VineDivider", () => {
   it("renders an svg marked decorative (aria-hidden)", () => {
@@ -30,9 +29,3 @@ describe("ArchFrame", () => {
   });
 });
 
-describe("StainedGlassRose", () => {
-  it("is exposed to assistive tech as a labelled image", () => {
-    render(<StainedGlassRose />);
-    expect(screen.getByRole("img")).toHaveAccessibleName(/rosa em vitral/i);
-  });
-});

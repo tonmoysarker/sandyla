@@ -8,7 +8,7 @@ export function ArchFrame({ children }: { children: React.ReactNode }) {
         className="border border-accent-strong/70 p-2 transition-shadow duration-organic-slow ease-organic hover:glow-soft"
         style={{ ...archRadius, aspectRatio: "3 / 4" }}
       >
-        <div className="h-full w-full overflow-hidden border border-outline-variant" style={archRadius}>
+        <div className="relative h-full w-full overflow-hidden border border-outline-variant" style={archRadius}>
           {children}
         </div>
       </div>
