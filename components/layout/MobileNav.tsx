@@ -8,6 +8,7 @@ export function MobileNav({ nav, open }: { nav: NavItem[]; open: boolean }) {
       data-testid="mobile-nav"
       data-open={open}
       aria-hidden={!open}
+      style={{ backgroundColor: "rgb(var(--surface) / 0.97)" }}
       className={`stained-glass fixed inset-x-0 top-16 z-40 flex flex-col border-b border-outline-variant/60 px-flow-s py-flow-xs transition-all duration-organic-base ease-organic md:hidden ${
         open ? "translate-y-0 opacity-100" : "pointer-events-none -translate-y-2 opacity-0"
       }`}
